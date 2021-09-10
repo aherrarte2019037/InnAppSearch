@@ -36,10 +36,15 @@
                 </div>
             </div>
         </div>
-        <div class="py-6 border-t-2 rounded-b-3xl border-gray-200 bg-gray-50 px-10">
-            <p class="text-base font-semibold italic leading-5 text-gray-500">
-                Resultados...
+        <div class="py-6 border-t-2 h-[68px] relative overflow-hidden rounded-b-3xl border-gray-200 px-10">
+            <p *ngIf="!isLoading" class="text-base text-center -mt-1 font-semibold leading-5 text-gray-500">
+                Resultados..
             </p>
+            <div class="absolute left-[40%] top-8 w-[90px] h-[90px]">
+                <div class="relative">                    
+                    <ngx-spinner template="<img src='../../../assets/loading.gif'/>"  color="rgba(0, 0, 0, 0.6)" bdColor="rgba(0, 0, 0, 0)" [fullScreen]="false" name="resultsSpinner"></ngx-spinner>
+                </div>
+            </div>
         </div>
     </div>
 </div>
