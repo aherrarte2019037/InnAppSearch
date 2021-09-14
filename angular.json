@@ -27,7 +27,10 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.css"
+              "src/styles.css",
+              "node_modules/angular-notifier/styles/core.css",
+              "node_modules/angular-notifier/styles/themes/theme-material.css",
+              "node_modules/angular-notifier/styles/types/type-default.css"
             ],
             "scripts": []
           },
