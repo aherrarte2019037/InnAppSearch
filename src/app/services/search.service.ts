@@ -7,7 +7,7 @@ import { SearchTerm } from '../models/search.model';
   providedIn: 'root'
 })
 export class SearchService {
-  private apiEndpoint = environment.APIEndpoint;
+  private apiEndpoint = 'https://yz8l6z59zh.execute-api.us-east-1.amazonaws.com';
 
   constructor(private http: HttpClient) { }
 

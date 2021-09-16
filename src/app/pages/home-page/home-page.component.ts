@@ -4,16 +4,17 @@ import { NotifierService } from 'angular-notifier';
 import { NgxSpinnerService } from 'ngx-spinner';
 import { SearchTerm } from 'src/app/models/search.model';
 import { SearchService } from 'src/app/services/search.service';
-import { bounceInOnEnterAnimation, bounceOutOnLeaveAnimation } from 'angular-animations';
+import { bounceInOnEnterAnimation, bounceOutOnLeaveAnimation, fadeInOnEnterAnimation, fadeOutOnLeaveAnimation, slideInDownOnEnterAnimation } from 'angular-animations';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-home-page',
   templateUrl: './home-page.component.html',
   styleUrls: ['./home-page.component.css'],
-  animations: [bounceInOnEnterAnimation(), bounceOutOnLeaveAnimation()
-  ]
+  animations: [bounceInOnEnterAnimation(), bounceOutOnLeaveAnimation(), fadeInOnEnterAnimation(), fadeOutOnLeaveAnimation(), slideInDownOnEnterAnimation()],
 })
 export class HomePageComponent implements OnInit {
+  showPdfViewer = false;
   isLoading: boolean = false;
   bottomMessage: string = 'Ingresa tu búsqueda...';
   resultFound: any = null;
@@ -39,6 +40,7 @@ export class HomePageComponent implements OnInit {
   search() {
     if (this.searchForm.invalid) {
       this.notifierService.show({type: 'warning', message: 'Ingrese todos los datos', template: this.notifierTemplate});
+      this.resultFound = null;
       return;
     }
 
@@ -80,7 +82,7 @@ export class HomePageComponent implements OnInit {
 
   validPdfUrl(pdfUrl: string): boolean {
     const regex = new RegExp(/^(https?|chrome):\/\/[^\s$.?#].[^\s]*$/g);
-    if (!pdfUrl || pdfUrl?.length === 0 || !pdfUrl.includes('.pdf') || !pdfUrl.match(regex)) return false;
+    if (!pdfUrl || pdfUrl?.length === 0 || !pdfUrl.match(regex)) return false;
 
     return true;
   }

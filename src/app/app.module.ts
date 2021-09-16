@@ -3,12 +3,12 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgxSpinnerModule } from 'ngx-spinner';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule } from '@angular/common/http';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './components/main/app.component';
 import { HomePageComponent } from './pages/home-page/home-page.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { NotifierModule, NotifierOptions } from 'angular-notifier';
+import { SafePipe } from './pipes/safe-url.pipe';
 
 const notifierOptions: NotifierOptions = {
   position: {
@@ -54,7 +54,8 @@ const notifierOptions: NotifierOptions = {
 @NgModule({
   declarations: [
     AppComponent,
-    HomePageComponent
+    HomePageComponent,
+    SafePipe,
   ],
   imports: [
     BrowserModule,
@@ -66,7 +67,6 @@ const notifierOptions: NotifierOptions = {
     BrowserAnimationsModule
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
-  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
