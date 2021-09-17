@@ -18,6 +18,7 @@ export class HomePageComponent implements OnInit {
   isLoading: boolean = false;
   bottomMessage: string = 'Ingresa tu búsqueda...';
   resultFound: any = null;
+  isMobileAgent: boolean = false;
   searchForm: FormGroup = this.formBuild();
   @ViewChild('notifierTemplate') notifierTemplate: any;
 
@@ -28,7 +29,11 @@ export class HomePageComponent implements OnInit {
     private searchService: SearchService
   ) { }
 
-  ngOnInit() { }
+  ngOnInit() {
+    if(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini|Mobile|mobile|CriOS/i.test(navigator.userAgent)) {
+      this.isMobileAgent = true;
+    }
+  }
 
   formBuild() {
     return this.fmBuilder.group({
