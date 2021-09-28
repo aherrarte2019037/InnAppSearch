@@ -25,7 +25,7 @@ module.exports = function (config) {
       suppressAll: true // removes the duplicated traces
     },
     coverageReporter: {
-      dir: require('path').join(__dirname, './coverage/InnAppSearch'),
+      dir: require('path').join(__dirname, './coverage/Copher'),
       subdir: '.',
       reporters: [
         { type: 'html' },
